@@ -1,9 +1,11 @@
 package com.qa.crm.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
+import org.testng.Assert;
+
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -23,9 +25,11 @@ public class LoginPageTest { // This is a testNg class for test cases on LoginPa
 	
 	//Globals
 	public PageBase myPage; // we have to call the non static method from PageBase class.
-	public WebDriver driver;
-	public Properties prop;
-	public LoginPage loginPageRef;
+	public WebDriver driver; // load driver
+	public Properties prop; // initiate prop which loads cofig.properites file
+	public LoginPage loginPageRef; // connects to the page
+	
+	
 	
 	@BeforeMethod
 	//1. to start the test
@@ -38,13 +42,14 @@ public class LoginPageTest { // This is a testNg class for test cases on LoginPa
 		prop = myPage.InitProperties(); // Initiate in the global level for this class above and assign it to ref var prop 	
 		//the above statement just gets the properties.
 		loginPageRef = new LoginPage(driver);  // this has to call the login method from LoginPage //// all initializations have to be done in this method
+		driver.get(prop.getProperty("url")); // to type the url taken from prop --> config.properties
 	}
 	
 	@Test(priority = 1)
 	public void LoginTitleTest() {
 		String ActualTitle = loginPageRef.getPageTitle();
 		System.out.println("The Login Page title is :"+ActualTitle);
-		Assert.assertEquals(MyConstants.LOGIN_PAGE_TITLE.trim(), ActualTitle.trim());
+		AssertJUnit.assertEquals(MyConstants.LOGIN_PAGE_TITLE.trim(), ActualTitle.trim());
 	}
 	
 	@Test(priority = 2)
@@ -59,7 +64,7 @@ public class LoginPageTest { // This is a testNg class for test cases on LoginPa
 	public void titleAfterLoginTest() throws InterruptedException {
 		String titleAfterLogin = loginTest();   // from retrned title value at the end of loginTest.
 		System.out.println("Page title after login is :"+titleAfterLogin);
-		Assert.assertEquals(MyConstants.HOME_PAGE_TITLE.trim(), titleAfterLogin.trim());
+		AssertJUnit.assertEquals(MyConstants.HOME_PAGE_TITLE.trim(), titleAfterLogin.trim());
 	}
 	
 	@AfterMethod

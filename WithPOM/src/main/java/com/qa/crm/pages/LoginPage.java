@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.qa.crm.base.PageBase;
 import com.qa.crm.util.JsLib;
 
+
 public class LoginPage extends PageBase{  // This gets WebDriver ref and Properies ref from PageBase Class
 
 	// all WebDriver elements webElements and Features -  in the form of - (methods) for Login page should be defined.

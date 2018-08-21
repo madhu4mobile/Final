@@ -8,7 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.qa.crm.util.MyConstants;
 
 public class PageBase {
 	//Class variables
@@ -20,40 +23,34 @@ public class PageBase {
 	public WebDriver browserInit() {
 		//Condition to chose browser from properties.
 		//System.setProperty("webdriver.chrome.driver", "c:\\selDrivers\\chromedriver.exe"); //HardCoded
+		prop = InitProperties(); // this is to get the browser from the properties. Prop need to be initiated.
+		//If that has to be used from any other page, it should be done as prop = PageBase.InitProperties();
+		String myBrowser = prop.getProperty("browser");
+				
+		if(myBrowser.equals("chrome")) {  	// the condition myBrowser == "Chrome" does not work.
+			System.out.println("Browser Defined is : "+myBrowser);
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+		} else if (myBrowser.equals("firefox")) {
+			System.out.println("Browser Defined is : "+myBrowser);
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\geckodriver.exe");
+			driver = new FirefoxDriver();
+		} else if (myBrowser.equals("headlessChrome")) {
+			System.out.println("Browser Defined is : "+myBrowser);
+			ChromeOptions co = new ChromeOptions();
+			co.addArguments("--headless");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
+			driver = new ChromeDriver(co);
+		}
 		
 		
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		
-//		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\geckodriver.exe");
-//		driver = new FirefoxDriver();
-		
-		//System.out.println("Browser defined :"+myBrowser);
-		
-//		if(prop.getProperty("browser")=="chrome") {
-//			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
-//			driver = new ChromeDriver();
-//		} else if (prop.getProperty("browser")=="firefox") {
-//			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\geckodriver.exe");
-//			driver = new FirefoxDriver();
-//		}
-		
-		
-//		if(myBrowser=="chrome") {
-//			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
-//			driver = new ChromeDriver();
-//		} else if (myBrowser=="firefox") {
-//			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\geckodriver.exe");
-//			driver = new FirefoxDriver();
-//		}
-		
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(MyConstants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		
-		driver.get("http://www.freecrm.com/index.html");
 		
-		return driver;  // after retrun, the access modifier should be WebDriver instead of Void.
+		
+		return driver;  // after return, the access modifier should be WebDriver instead of Void.
 		// This way, the driver objRef can be used in Other classes/Child classes.
 	}
 	
