@@ -36,13 +36,16 @@ public class LoginPage extends PageBase{  // This gets WebDriver ref and Properi
 	}
 	//To add the features.
 	public void login(String uName, String pwd) {
+		JsLib.drawBorder(username, driver);// to draw a boarder at username
 		username.sendKeys(uName);
+		JsLib.drawBorder(password, driver);// to draw a boarder at password
 		password.sendKeys(pwd);
 		
 		//For the login button, we need to use JavaScriptExecuter class in selenium
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("arguments[0].click", loginBtn);
-		JsLib.clickElementByJS(loginBtn, driver);
+		JsLib.flash(loginBtn, driver); // to draw boarder around the login page
+		JsLib.clickElementByJS(loginBtn, driver);  // instead of JavascriptExecutor hardcoded, we can use the JsLib
 		
 		//loginBtn.click();
 //		JavascriptExecutor js = (JavascriptExecutor)SeleniumDriver.getDriver();

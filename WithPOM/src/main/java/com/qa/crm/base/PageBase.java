@@ -10,10 +10,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.qa.crm.util.MyConstants;
 
 public class PageBase {
+	private static final String HtmlUnitDriver = null;
 	//Class variables
 	public static WebDriver driver ;  // as the driver objRef is done at global level, It can be accessed anywhere.
 	public static Properties prop ;   // same with prop objRef;
@@ -41,7 +41,11 @@ public class PageBase {
 			co.addArguments("--headless");
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\crm\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver(co);
-		}
+		} 
+//		else if (myBrowser.equals("headlessHtmlUnit")) {
+//			System.out.println("Browser Defined is : "+myBrowser);
+//			driver = new HtmlUnitDriver();
+//			HtmlUnitDriver driver = new HtmlUnitDriver();		}
 		
 		
 		driver.manage().timeouts().pageLoadTimeout(MyConstants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
