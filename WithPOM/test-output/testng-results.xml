@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="2" passed="2" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-08-21T21:26:56Z" name="Default suite" finished-at="2018-08-21T21:27:26Z" duration-ms="30062">
+  <suite name="Free CRM Test Automation Suite" duration-ms="28360" started-at="2018-08-22T22:58:47Z" finished-at="2018-08-22T22:59:15Z">
     <groups>
     </groups>
-    <test started-at="2018-08-21T21:26:56Z" name="Default test" finished-at="2018-08-21T21:27:26Z" duration-ms="30062">
+    <test name="Free CRM App Test Cases" duration-ms="28360" started-at="2018-08-22T22:58:47Z" finished-at="2018-08-22T22:59:15Z">
       <class name="com.qa.crm.tests.LoginPageTest">
-        <test-method is-config="true" signature="start()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:26:56Z" name="start" finished-at="2018-08-21T17:27:05Z" duration-ms="9547" status="PASS">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="start" is-config="true" duration-ms="8024" started-at="2018-08-22T18:58:47Z" finished-at="2018-08-22T18:58:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method signature="LoginTitleTest()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:27:05Z" name="LoginTitleTest" finished-at="2018-08-21T17:27:05Z" duration-ms="65" status="PASS">
+        <test-method status="PASS" signature="LoginTitleTest()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="LoginTitleTest" duration-ms="48" started-at="2018-08-22T18:58:55Z" finished-at="2018-08-22T18:58:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginTitleTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:27:05Z" name="tearDown" finished-at="2018-08-21T17:27:06Z" duration-ms="1029" status="PASS">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="tearDown" is-config="true" duration-ms="916" started-at="2018-08-22T18:58:55Z" finished-at="2018-08-22T18:58:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="start()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:27:06Z" name="start" finished-at="2018-08-21T17:27:13Z" duration-ms="6572" status="PASS">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="start" is-config="true" duration-ms="5639" started-at="2018-08-22T18:58:56Z" finished-at="2018-08-22T18:59:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method signature="titleAfterLoginTest()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:27:13Z" name="titleAfterLoginTest" finished-at="2018-08-21T17:27:25Z" duration-ms="11658" status="PASS">
+        <test-method status="PASS" signature="titleAfterLoginTest()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="titleAfterLoginTest" duration-ms="12656" started-at="2018-08-22T18:59:01Z" finished-at="2018-08-22T18:59:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- titleAfterLoginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.crm.tests.LoginPageTest@41a2befb]" started-at="2018-08-21T17:27:25Z" name="tearDown" finished-at="2018-08-21T17:27:26Z" duration-ms="1153" status="PASS">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.crm.tests.LoginPageTest@68be2bc2]" name="tearDown" is-config="true" duration-ms="1049" started-at="2018-08-22T18:59:14Z" finished-at="2018-08-22T18:59:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.qa.crm.tests.LoginPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Free CRM App Test Cases -->
+  </suite> <!-- Free CRM Test Automation Suite -->
 </testng-results>

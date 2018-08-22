@@ -5,7 +5,8 @@
 <suite name="Free CRM Test Automation Suite">
 
 	<test name="Free CRM App Test Cases">
-
+		<!--<parameter name="browser" value="chrome"></parameter> -->
+		 		
 		<classes>
 			<class name="com.qa.crm.tests.LoginPageTest"/>
 
